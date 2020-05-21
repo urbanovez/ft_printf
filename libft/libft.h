@@ -73,5 +73,7 @@ char	**ft_strsplit(char const *s, char c);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putnbr(int n);
 char	*ft_strjoin_free(char **s1, char const *s2);
+char	*ft_strjoin_free2(char **s1, char **s2);
+
 //char	*ft_strsub_free(char const *s, unsigned int start, size_t len);
 #endif

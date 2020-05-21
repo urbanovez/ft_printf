@@ -20,11 +20,6 @@ void	*ft_memalloc(size_t size)
 	i = 0;
 	if ((t = malloc(size)) == NULL)
 		return (NULL);
-//	while (i < (int)size)
-//	{
-//		t[i] = 0;
-//		i++;
-//	}
     ft_bzero(t, size);
 	return (t);
 }
