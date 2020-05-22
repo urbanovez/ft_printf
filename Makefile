@@ -16,7 +16,7 @@ NAME = libftprintf.a
 
 SRC_DIR = ./src
 FILES = flags.c ft_intmax.c ft_printf.c print_di.c\
-    print_f.c print_o.c print_p.c print_type_field.c \
+    print_f.c print_o.c print_type_field.c \
     print_u.c print_xX.c
 SRC = $(addprefix $(SRC_DIR)/,$(FILES))
 OBJ = $(SRC:.c=.o)

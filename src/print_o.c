@@ -29,12 +29,10 @@ char *ft_precision_join(int i,char **num)//i точность, нум число
 	char *f;
 	char *f1;
 	int j;
-	int m;
 
 	j = 0;
 	if(i < 0)
 		i = 0;
-	//f = malloc(sizeof(char)* (i + ft_strlen(num) +1));
 	f1 = malloc(sizeof(char)* i + 1);
 	while(i-- > 0)
 		f1[j++] = '0';
@@ -61,7 +59,7 @@ int print_o(t_dose	*dose, va_list arg,  int count)
 	if (dose->precision == 0 && dose->period == 0)
 		dose->precision = 1;
 	l = ft_precision_join(dose->precision- ft_strlen(l), &l);
-	l = ft_join_width(dose, &l, num);
+	l = ft_join_width(dose, &l);
 	ft_putstr(l);
 	count = count + ft_strlen(l);
 	ft_strdel(&l);

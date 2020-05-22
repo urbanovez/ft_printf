@@ -77,7 +77,8 @@ int print_c(t_dose	*dose, va_list arg,  int count)
 {
 	int l;
 	char num;
-	num = (char)va_arg(arg, void *); //второй аргумент, это след аргумент на подачу
+    num = va_arg(arg, intmax_t);
+	//num = (char)va_arg(arg, void *); //второй аргумент, это след аргумент на подачу
 	if(dose->width >0)//попробовать вместо count count+l
 	{
 		l = (dose->width - 1);

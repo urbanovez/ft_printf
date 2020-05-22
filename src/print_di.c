@@ -45,6 +45,9 @@ char	*ft_delete_minus(char **src)//убираем минус из начала �
 {
 	char *dst;
 	int i;
+	char *p;
+
+	p  = *src;
 	dst = malloc(sizeof(char)*ft_strlen(*src));
 	i = 0;
 	while (**src)
@@ -54,11 +57,11 @@ char	*ft_delete_minus(char **src)//убираем минус из начала �
 		i++;
 	}
 	dst[i] = '\0';
-	ft_strdel(src);
+	ft_strdel(&p);
 	return (dst);
 }
 
-char *width_join(int len, char s, char **i1, int i, int num)
+char *width_join(int len, char s, char **i1, int i)
 {
 	char *wid;
 	int j;
@@ -88,19 +91,19 @@ char *width_join(int len, char s, char **i1, int i, int num)
 	return(*i1);
 }
 
-char *ft_join_width(t_dose	*dose,char **i1, int num)
+char *ft_join_width(t_dose	*dose,char **i1)
 {
 	int l;
 	char *i2;
-	if(dose->width <= ft_strlen(*i1))
+	if(dose->width <= (int)ft_strlen(*i1))
 		return(*i1);
 	l = (dose->width- (int)ft_strlen(*i1)); //потом можно убрать
 	if (dose->minus == 1)//l пробелов после
-		i2 = width_join(l, ' ', i1, 1, num);//сколько, какой символ , к чему, до или после(1 после)
+		i2 = width_join(l, ' ', i1, 1);//сколько, какой символ , к чему, до или после(1 после)
 	else if(dose->zero == 1)
-		i2 = width_join(l, '0', i1, 0, num);
+		i2 = width_join(l, '0', i1, 0);
 	else
-		i2 = width_join(l, ' ', i1, 0, num);
+		i2 = width_join(l, ' ', i1, 0);
 	return (i2);
 }
 
@@ -151,7 +154,7 @@ int print_di(t_dose	*dose, va_list arg,  int count)
 		dose->precision = 1;
 	i1 = ft_join_pr(dose->precision- ft_strlen(i1), &i1);
 	i1 = ft_join_sign(dose, &i1);//плюс или пробел в начале
-	i1 = ft_join_width(dose, &i1, num);
+	i1 = ft_join_width(dose, &i1);
 	ft_putstr(i1);
 	count = count + ft_strlen(i1);
 	ft_strdel(&i1);

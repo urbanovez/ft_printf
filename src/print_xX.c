@@ -39,14 +39,14 @@ int print_xX(t_dose	*dose, va_list arg,  int count)
 	if (dose->zero == 1 && dose->number_sign == 1)
 	{
 		dose->width -=2;
-		l = ft_join_width(dose, &l, num);
+		l = ft_join_width(dose, &l);
 		l = ft_0x(dose, &l);
 	}
 	else
 	{
 		if (dose->number_sign == 1)
 			l = ft_0x(dose, &l);
-		l = ft_join_width(dose, &l, num);
+		l = ft_join_width(dose, &l);
 	}
 	ft_putstr(l);
 	count = count + ft_strlen(l);

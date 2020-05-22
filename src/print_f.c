@@ -38,7 +38,6 @@ char *ft_inttochar(t_dose	*dose, long double num)
 	intmax_t i1;
 	char *c;
 	char *c1;
-	long double l;
 	int prec;
 
 	prec = dose->precision;
@@ -48,8 +47,6 @@ char *ft_inttochar(t_dose	*dose, long double num)
 	if (prec != 0 || dose -> number_sign == 1)
 		c1 = ft_strjoin_free(&c1, ".\0");
 	num = num - (intmax_t)num;
-	//if(num< 0)
-	//	num = -num;
 	num *=10;
 	while(num != 0 && prec-1 >= 0)
 	{
@@ -67,7 +64,6 @@ int print_f(t_dose	*dose, va_list arg,  int count)
 {
 	char *i1;
 	int i;
-	//long double num;
 	long double num;
 
 	i = 0;
@@ -87,7 +83,7 @@ int print_f(t_dose	*dose, va_list arg,  int count)
 	if (i == 1)
 		i1 = ft_join_minus(&i1, '-');
 	i1 = ft_join_sign(dose, &i1);
-	i1 = ft_join_width(dose, &i1, num);
+	i1 = ft_join_width(dose, &i1);
 	ft_putstr(i1);
 	count = count + ft_strlen(i1);
 	ft_strdel(&i1);

@@ -19,7 +19,7 @@ int print_u(t_dose	*dose, va_list arg,  int count)
 	if (dose->precision == 0 && dose->period == 0)
 		dose->precision = 1;
 	l = ft_precision_join(dose->precision- ft_strlen(l), &l);
-	l = ft_join_width(dose, &l, num);
+	l = ft_join_width(dose, &l);
 	ft_putstr(l);
 	count = count + ft_strlen(l);
 	ft_strdel(&l);

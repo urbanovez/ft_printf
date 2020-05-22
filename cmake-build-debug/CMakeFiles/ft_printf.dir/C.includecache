@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/c/Users/hamin/CLionProjects/ft_printf/libft/libft.h
+/home/mr_zubr/CLionProjects/ft_printf/libft/libft.h
 string.h
 -
 stdlib.h
@@ -14,7 +14,7 @@ stdlib.h
 unistd.h
 -
 
-/cygdrive/c/Users/hamin/CLionProjects/ft_printf/src/ft_printf.h
+/home/mr_zubr/CLionProjects/ft_printf/src/ft_printf.h
 stdarg.h
 -
 string.h
@@ -22,7 +22,7 @@ string.h
 stdbool.h
 -
 ../libft/libft.h
-/cygdrive/c/Users/hamin/CLionProjects/ft_printf/libft/libft.h
+/home/mr_zubr/CLionProjects/ft_printf/libft/libft.h
 locale.h
 -
 inttypes.h
@@ -32,9 +32,9 @@ wchar.h
 stdio.h
 -
 
-/cygdrive/c/Users/hamin/CLionProjects/ft_printf/src/main.c
+/home/mr_zubr/CLionProjects/ft_printf/src/main.c
 ft_printf.h
-/cygdrive/c/Users/hamin/CLionProjects/ft_printf/src/ft_printf.h
+/home/mr_zubr/CLionProjects/ft_printf/src/ft_printf.h
 stdio.h
 -
 limits.h
