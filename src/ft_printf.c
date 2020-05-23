@@ -9,11 +9,11 @@ int ft_print_types(t_dose *dose, va_list arg, int count)
 		count = print_s(dose, arg, count);
 	else if (dose->format_conversion == 'f')
 		count = print_f(dose, arg, count);
-	else if (dose->format_conversion == 'd' || dose->format_conversion == 'i')
+	else if (dose->format_conversion == 'd' || dose->format_conversion == 'i' || dose->format_conversion == 'D')
 		count = print_di(dose, arg, count);
-	else if (dose->format_conversion == 'u')
+	else if (dose->format_conversion == 'u' || dose->format_conversion == 'U')
 		count = print_u(dose, arg, count);
-	else if (dose->format_conversion == 'o')
+	else if (dose->format_conversion == 'o' || dose->format_conversion == 'O')
 		count = print_o(dose, arg, count);
 	else if (dose->format_conversion == 'x' || dose->format_conversion == 'X')
 		count = print_xX(dose, arg, count);

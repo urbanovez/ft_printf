@@ -131,7 +131,8 @@ char	*ft_join_sign(t_dose	*dose,char **i1)
 		(*i1)++;
 	}
 	number_s[i] = '\0';
-	ft_strdel(&sign);
+	if (dose->format_conversion == 'd' || dose->format_conversion == 'i')
+		ft_strdel(&sign);
 	return (number_s);
 }
 

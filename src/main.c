@@ -13,8 +13,11 @@ int main()
     //printf("\n");
 //    i1 = ft_printf("% .d", 0);
 //    printf("\n");
-    ft_printf("%o", 0);
-	printf("%o", 0);
+    ft_printf("%#d\n", 1000);
+	//printf("%#o", 1000);
+	//printf("%U", 231009999);
+    //printf("%zu", (size_t)145612220);
+
 
 	return (0);
 }

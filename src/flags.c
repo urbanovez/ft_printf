@@ -40,11 +40,9 @@ const char *adding_length_modifier(t_dose *dose, const char **format_point)
 		k[2] = '\0';
 		k[1] = '\0';
 		k[0] = *(*format_point)++;
-		//(*format_point)++;
+
 		if( **format_point == 'h' || **format_point == 'l')
 			k[1] = *(*format_point)++;
-		//dose->length_modifier = k;
-		//ft_strdel(&k);
 	}
 	dose->length_modifier = k;
 	//ft_strdel(&k);
