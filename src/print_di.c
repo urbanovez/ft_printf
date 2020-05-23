@@ -143,13 +143,27 @@ int print_di(t_dose	*dose, va_list arg,  int count)
 	num = va_arg(arg, intmax_t);
 	num = (!ft_strcmp(dose->length_modifier, "l")) ? (long)num : num;
 	num = (!ft_strcmp(dose->length_modifier, "ll")) ? (long long)num : num;
+    num = (!ft_strcmp(dose->length_modifier, "z")) ? (size_t)num : num;
+    num = (!ft_strcmp(dose->length_modifier, "j")) ? (intmax_t)num : num;
 	num = (ft_strlen(dose->length_modifier) == 0) ? (int)num : num;
 	num = (!ft_strcmp(dose->length_modifier, "h")) ? (short)num : num;
 	num = (!ft_strcmp(dose->length_modifier, "hh")) ? (signed char)num : num;
 
 	i1 = ft_intmax_toa(num);
 	if (num == '\0' && dose->precision == 0 && dose->period == 1)
-		return(count);
+    {
+	    if(dose->plus == 1)
+	    {
+			ft_putchar('+');
+			count++;
+		}
+	    if (dose->space == 1)
+		{
+			ft_putchar(' ');
+			count++;
+		}
+        return(count);
+    }
 	if (dose->precision == 0 && dose->period == 0)
 		dose->precision = 1;
 	i1 = ft_join_pr(dose->precision- ft_strlen(i1), &i1);

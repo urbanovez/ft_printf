@@ -20,7 +20,7 @@ bool type_field(char c)
 {
 	char	*fields;
 
-	fields = "hlL";
+	fields = "zhlLj";
 	while (*fields)
 	{
 		if (c == *fields)
