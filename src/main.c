@@ -11,9 +11,9 @@ int main()
     int i1;
 
 //    printf("\n");
-	i = ft_printf("%10.0d", 6);
+	i = ft_printf("%12%");
     ft_printf("\n");
-    i1 = printf("%10.0d", 6);
+    i1 = printf("%12%");
     printf("\n%d %d", i, i1);
 
 
