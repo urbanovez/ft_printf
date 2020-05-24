@@ -9,7 +9,7 @@ int print_u(t_dose	*dose, va_list arg,  int count)
 
 	num = va_arg(arg, intmax_t);
 	num1 = num;
-	num = (!ft_strcmp(dose->length_modifier, "l")) ? (long)num : num;
+	num = (!ft_strcmp(dose->length_modifier, "l")) ? (unsigned long)num : num;
 	num = (!ft_strcmp(dose->length_modifier, "ll")) ? (long long)num : num;
 	num = (ft_strlen(dose->length_modifier) == 0) ? (unsigned int)num : num;
 	num = (!ft_strcmp(dose->length_modifier, "h")) ? (short)num : num;

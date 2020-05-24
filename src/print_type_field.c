@@ -36,7 +36,14 @@ int print_s(t_dose	*dose, va_list arg, int count)
 		num = malloc(sizeof(char)* 7);
 		num = ft_strcpy(num, "(null)");
 		if (dose->precision < 6 && dose->period == 1)
-			return(count);
+		{
+			while(dose->width -- > 0)
+			{
+				count++;
+				ft_putchar(' ');
+			}
+			return (count);
+		}
 	}
 	i = ft_strlen(num);
 	num = ft_use_precision(num, dose->precision, dose->period);
