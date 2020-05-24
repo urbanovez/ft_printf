@@ -51,9 +51,14 @@ int print_o(t_dose	*dose, va_list arg,  int count)
 	num = (ft_strlen(dose->length_modifier) == 0) ? (unsigned int)num : num;
 	num = (!ft_strcmp(dose->length_modifier, "h")) ? (short)num : num;
 	num = (!ft_strcmp(dose->length_modifier, "hh")) ? (signed char)num : num;
-	if (num == '\0' && dose->precision == 0 && dose->period == 1 && dose->number_sign == 0)
-		return(count);
+	//if (num == '\0' && dose->precision == 0 && dose->period == 1 && dose->number_sign == 0)
+
 	l = convert(num, 8, 0);
+	if (num == '\0' && dose->precision == 0 && dose->period == 1)
+	{
+		l = malloc(sizeof(char));
+		l[0] = '\0';
+	}
 	l = ft_join_sign(dose, &l);//плюс или пробел в начале
 
 	if (dose->precision == 0 && dose->period == 0)

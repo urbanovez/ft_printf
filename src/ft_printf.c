@@ -3,7 +3,7 @@
 
 int ft_print_types(t_dose *dose, va_list arg, int count)
 {
-	if (dose->format_conversion == 'c')
+	if (dose->format_conversion == 'c'|| dose->format_conversion == 'C')
 		count = print_c(dose, arg, count);
 	else if (dose->format_conversion == 's')
 		count = print_s(dose, arg, count);

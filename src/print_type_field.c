@@ -82,8 +82,6 @@ int print_c(t_dose	*dose, va_list arg,  int count)
 	if(dose->width >0)//попробовать вместо count count+l
 	{
 		l = (dose->width - 1);
-		if(l > 0)//мб можно убрать
-		{
 			if (dose->minus == 1)
 			{
 				ft_putchar(num);
@@ -104,7 +102,6 @@ int print_c(t_dose	*dose, va_list arg,  int count)
 				count++;
 			}
 		}
-	}
 	else
 	{
 		ft_putchar(num);

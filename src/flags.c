@@ -111,6 +111,8 @@ const char *adding_t_dose(const char **format_point, t_dose *dose) { //сюда 
 	*format_point = adding_precision(dose , format_point);
 	*format_point = adding_length_modifier(dose , format_point);
 	dose->format_conversion = **format_point;
+	if (dose->format_conversion == 'O')
+		dose->format_conversion = 'o';
 	if (dose->minus == 1)
 		dose->zero = 0;
 	if (dose->plus == 1)

@@ -153,17 +153,8 @@ int print_di(t_dose	*dose, va_list arg,  int count)
 	i1 = ft_intmax_toa(num);
 	if (num == '\0' && dose->precision == 0 && dose->period == 1)
     {
-	    if(dose->plus == 1)
-	    {
-			ft_putchar('+');
-			count++;
-		}
-	    if (dose->space == 1)
-		{
-			ft_putchar(' ');
-			count++;
-		}
-        return(count);
+	    i1 = malloc(sizeof(char));
+	    i1[0] = '\0';
     }
 	if (dose->precision == 0 && dose->period == 0)
 		dose->precision = 1;

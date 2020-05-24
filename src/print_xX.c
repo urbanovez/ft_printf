@@ -25,14 +25,22 @@ int print_xX(t_dose	*dose, va_list arg,  int count)
 	num = (!ft_strcmp(dose->length_modifier, "hh")) ? (signed char)num : num;
 
 	//num = (unsigned int) va_arg(arg, void *);
-	if (num == '\0' && dose->precision == 0 && dose->period == 1)
-		return (count);
+	/*if (num == '\0' && dose->precision == 0 && dose->period == 1)
+	{
+		i1 = malloc(sizeof(char));
+		i1[0] = '\0';
+	}*/
 	if (num == 0)
 		dose->number_sign = 0;
 	if (dose->format_conversion == 'x')
 			l = convert(num, 16, 0);
 	else if (dose->format_conversion == 'X')
 		l = convert(num, 16, 1);
+	if (num == '\0' && dose->precision == 0 && dose->period == 1)
+	{
+		l = malloc(sizeof(char));
+		l[0] = '\0';
+	}
 	if (dose->precision == 0 && dose->period == 0)
 		dose->precision = 1;
 	l = ft_precision_join(dose->precision- ft_strlen(l), &l);
