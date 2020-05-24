@@ -71,6 +71,10 @@ CMakeFiles/ft_printf.dir/src/print_o.c.o
  /home/mr_zubr/CLionProjects/ft_printf/libft/libft.h
  /home/mr_zubr/CLionProjects/ft_printf/src/ft_printf.h
  /home/mr_zubr/CLionProjects/ft_printf/src/print_o.c
+CMakeFiles/ft_printf.dir/src/print_p.c.o
+ /home/mr_zubr/CLionProjects/ft_printf/libft/libft.h
+ /home/mr_zubr/CLionProjects/ft_printf/src/ft_printf.h
+ /home/mr_zubr/CLionProjects/ft_printf/src/print_p.c
 CMakeFiles/ft_printf.dir/src/print_type_field.c.o
  /home/mr_zubr/CLionProjects/ft_printf/libft/libft.h
  /home/mr_zubr/CLionProjects/ft_printf/src/ft_printf.h

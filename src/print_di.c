@@ -136,6 +136,17 @@ char	*ft_join_sign(t_dose	*dose,char **i1)
 	return (number_s);
 }
 
+char *ft_zero(t_dose *dose, intmax_t num, char **i1)
+{
+	if (num == '\0' && dose->precision == 0 && dose->period == 1)
+	{
+		ft_strdel(i1);
+		i1 = malloc(sizeof(char));
+		*i1 = "\0";
+	}
+	return (*i1);
+}
+
 int print_di(t_dose	*dose, va_list arg,  int count)
 {
 	char *i1;
@@ -151,13 +162,13 @@ int print_di(t_dose	*dose, va_list arg,  int count)
 	num = (!ft_strcmp(dose->length_modifier, "hh")) ? (signed char)num : num;
 
 	i1 = ft_intmax_toa(num);
-	if (num == '\0' && dose->precision == 0 && dose->period == 1)
+	i1 = ft_zero(dose, num, &i1);
+	/*if (num == '\0' && dose->precision == 0 && dose->period == 1)
     {
 	    i1 = malloc(sizeof(char));
 	    i1[0] = '\0';
-    }
-	if (dose->precision == 0 && dose->period == 0)
-		dose->precision = 1;
+    }*/
+	dose->precision = (dose->precision == 0 && dose->period == 0) ? 1 : dose->precision;
 	i1 = ft_join_pr(dose->precision- ft_strlen(i1), &i1);
 	i1 = ft_join_sign(dose, &i1);//плюс или пробел в начале
 	i1 = ft_join_width(dose, &i1);

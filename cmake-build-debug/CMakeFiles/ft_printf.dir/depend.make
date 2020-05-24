@@ -71,6 +71,10 @@ CMakeFiles/ft_printf.dir/src/print_o.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/src/print_o.c.o: ../src/ft_printf.h
 CMakeFiles/ft_printf.dir/src/print_o.c.o: ../src/print_o.c
 
+CMakeFiles/ft_printf.dir/src/print_p.c.o: ../libft/libft.h
+CMakeFiles/ft_printf.dir/src/print_p.c.o: ../src/ft_printf.h
+CMakeFiles/ft_printf.dir/src/print_p.c.o: ../src/print_p.c
+
 CMakeFiles/ft_printf.dir/src/print_type_field.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/src/print_type_field.c.o: ../src/ft_printf.h
 CMakeFiles/ft_printf.dir/src/print_type_field.c.o: ../src/print_type_field.c

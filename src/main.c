@@ -11,9 +11,9 @@ int main()
     int i1;
 
 //    printf("\n");
-	i = ft_printf("test%-8p %---32p %#5.3x%#024X", "&ret", "&tret", 0x25, 0);
+	i = ft_printf("%10.0d", 6);
     ft_printf("\n");
-    i1 = printf("test%-8p %---32p %#5.3x%#024X", "&ret", "&tret", 0x25, 0);
+    i1 = printf("%10.0d", 6);
     printf("\n%d %d", i, i1);
 
 

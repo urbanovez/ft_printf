@@ -30,9 +30,8 @@ typedef struct	s_dose
     char		format_conversion;
 }				t_dose;
 
-//flags  width! precision!
 int	 ft_printf(const char *format, ...);			//Our printf function
-//char* convert(unsigned int, int); 		//Convert integer number into octal, hex, etc.
+
 
 void iniliaze_t_dose(t_dose		*dose);
 bool type_field(char c);
@@ -48,10 +47,10 @@ int print_f(t_dose	*dose, va_list arg,  int count);
 int print_di(t_dose	*dose, va_list arg,  int count);
 int print_u(t_dose	*dose, va_list arg,  int count);
 int print_o(t_dose	*dose, va_list arg,  int count);
+int print_p(t_dose	*dose, va_list arg,  int count);
 int power(int x, int y);
 int int_strlen(int i);
 char *convert(intmax_t num, int base, int a);
-char *ft_intjoin(int i,int num);
 char *ft_join_width(t_dose	*dose,char **i1);
 char *width_join(int len, char s, char **i1, int i);
 char	*ft_join_sign(t_dose	*dose,char **i1);

@@ -25,6 +25,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/mr_zubr/CLionProjects/ft_printf/src/print_di.c" "/home/mr_zubr/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/src/print_di.c.o"
   "/home/mr_zubr/CLionProjects/ft_printf/src/print_f.c" "/home/mr_zubr/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/src/print_f.c.o"
   "/home/mr_zubr/CLionProjects/ft_printf/src/print_o.c" "/home/mr_zubr/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/src/print_o.c.o"
+  "/home/mr_zubr/CLionProjects/ft_printf/src/print_p.c" "/home/mr_zubr/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/src/print_p.c.o"
   "/home/mr_zubr/CLionProjects/ft_printf/src/print_type_field.c" "/home/mr_zubr/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/src/print_type_field.c.o"
   "/home/mr_zubr/CLionProjects/ft_printf/src/print_u.c" "/home/mr_zubr/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/src/print_u.c.o"
   "/home/mr_zubr/CLionProjects/ft_printf/src/print_xX.c" "/home/mr_zubr/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/src/print_xX.c.o"

@@ -3,7 +3,6 @@
 
 void iniliaze_t_dose(t_dose		*dose)
 {
-	//dose = ft_memalloc(sizeof(t_dose));
 	dose->number_sign = 0;
 	dose->zero = 0;
 	dose->minus = 0;
@@ -33,6 +32,7 @@ bool type_field(char c)
 const char *adding_length_modifier(t_dose *dose, const char **format_point)
 {
 	char *k;
+
 	k = "";
 	if (type_field(**format_point))
 	{
@@ -40,12 +40,10 @@ const char *adding_length_modifier(t_dose *dose, const char **format_point)
 		k[2] = '\0';
 		k[1] = '\0';
 		k[0] = *(*format_point)++;
-
 		if( **format_point == 'h' || **format_point == 'l')
 			k[1] = *(*format_point)++;
 	}
 	dose->length_modifier = k;
-	//ft_strdel(&k);
 	return (*format_point);
 }
 

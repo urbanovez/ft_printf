@@ -20,6 +20,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/src/print_di.c.o"
   "CMakeFiles/ft_printf.dir/src/print_f.c.o"
   "CMakeFiles/ft_printf.dir/src/print_o.c.o"
+  "CMakeFiles/ft_printf.dir/src/print_p.c.o"
   "CMakeFiles/ft_printf.dir/src/print_type_field.c.o"
   "CMakeFiles/ft_printf.dir/src/print_u.c.o"
   "CMakeFiles/ft_printf.dir/src/print_xX.c.o"

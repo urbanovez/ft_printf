@@ -690,6 +690,33 @@ src/print_o.c.s:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/src/print_o.c.s
 .PHONY : src/print_o.c.s
 
+src/print_p.o: src/print_p.c.o
+
+.PHONY : src/print_p.o
+
+# target to build an object file
+src/print_p.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/src/print_p.c.o
+.PHONY : src/print_p.c.o
+
+src/print_p.i: src/print_p.c.i
+
+.PHONY : src/print_p.i
+
+# target to preprocess a source file
+src/print_p.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/src/print_p.c.i
+.PHONY : src/print_p.c.i
+
+src/print_p.s: src/print_p.c.s
+
+.PHONY : src/print_p.s
+
+# target to generate assembly for a file
+src/print_p.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/src/print_p.c.s
+.PHONY : src/print_p.c.s
+
 src/print_type_field.o: src/print_type_field.c.o
 
 .PHONY : src/print_type_field.o
@@ -843,6 +870,9 @@ help:
 	@echo "... src/print_o.o"
 	@echo "... src/print_o.i"
 	@echo "... src/print_o.s"
+	@echo "... src/print_p.o"
+	@echo "... src/print_p.i"
+	@echo "... src/print_p.s"
 	@echo "... src/print_type_field.o"
 	@echo "... src/print_type_field.i"
 	@echo "... src/print_type_field.s"

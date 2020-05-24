@@ -18,13 +18,7 @@ int ft_print_types(t_dose *dose, va_list arg, int count)
 	else if (dose->format_conversion == 'x' || dose->format_conversion == 'X')
 		count = print_xX(dose, arg, count);
 	else if (dose->format_conversion == 'p')
-	{
-		dose->format_conversion = 'x';
-		dose->number_sign = 1;
-		dose->length_modifier = malloc(sizeof(char) * 3);
-		dose->length_modifier = ft_strcpy(dose->length_modifier, "ll");
-		count = print_xX(dose, arg, count);
-	}
+		count = print_p(dose, arg, count);
 	else if (dose->format_conversion == '%')
 	{
 		ft_putchar('%');
@@ -63,15 +57,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			/*
-			if(*format == '%')
-			{
-				ft_putchar('%');
-				format++;
-				count++;
-			}
-			else*/
-				count = ft_argument(&format, count, arg);
+			count = ft_argument(&format, count, arg);
 		}
 		else if (*format != '%')
 		{
