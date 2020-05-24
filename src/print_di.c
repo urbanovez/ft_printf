@@ -74,7 +74,7 @@ char *width_join(int len, char s, char **i1, int i)
 		*i1 = ft_strjoin_free2(i1, &wid);
 	else
 	{
-		if (*i1[0] == '+' || *i1[0] == '-')
+		if (*i1[0] == '+' || *i1[0] == '-' || *i1[0] == ' ')
 		{
 			if (s == '0')
 			{

@@ -18,6 +18,8 @@ char *ft_use_precision(char *num, int precision, int period)
 		}
 	}
 	num2[i] = '\0';
+	//if (ft_strcmp(num, "(null)"))
+	//	ft_strdel(&num);
 	return(num2);
 }
 
@@ -29,29 +31,40 @@ int print_s(t_dose	*dose, va_list arg, int count)
 
 	//num = va_arg(arg, char *);
 	num = (char*)va_arg(arg, void *);
+	if (num == NULL)
+	{
+		num = malloc(sizeof(char)* 7);
+		num = ft_strcpy(num, "(null)");
+		if (dose->precision < 6 && dose->period == 1)
+			return(count);
+	}
 	i = ft_strlen(num);
 	num = ft_use_precision(num, dose->precision, dose->period);
-	if(dose->width >0)
+	if(dose-> width - (int)ft_strlen(num) >0)
 	{
-		l = (dose-> width - (int)ft_strlen(num));
-		if(l > 0)//мб можно убрать
-		{
+		l = (dose-> width - (int)ft_strlen(num)); //можно избавиться
 			if (dose->minus == 1)
 			{
 				ft_putstr(num);
 				while (l-- > 0 )
+				{
 					ft_putchar(' ');
+					count++;
+				}
 			}
 			else{
 				while (l-- > 0)
+				{
 					ft_putchar(' ');
+					count++;
+				}
 				ft_putstr(num);
 			}
-		}
 	}
 	else
 		ft_putstr(num);
-	if (i - dose->precision <= 0)
+	count = count + ft_strlen(num);
+	if (i - dose->precision > 0 && dose->period == 1)
 		ft_strdel(&num);
 	return (count);
 }
