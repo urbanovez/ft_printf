@@ -58,5 +58,6 @@ char *ft_precision_join(int i,char **num);
 char	*ft_intmax_toa(intmax_t num);
 char *ft_join_pr(int i, char **i1);
 char	*ft_join_minus(char **i1, char sign);
+int ft_putchar_and_count(char num, int count);
 
 #endif

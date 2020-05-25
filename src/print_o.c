@@ -55,7 +55,6 @@ int print_o(t_dose	*dose, va_list arg,  int count)
 	l = convert(num, 8, 0);
 	if (num == '\0' && dose->precision == 0 && dose->period == 1)
 	{
-		//надо ли чистить
 		l = malloc(sizeof(char));
 		l[0] = '\0';
 	}

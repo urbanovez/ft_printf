@@ -3,20 +3,16 @@
 
 int print_u(t_dose	*dose, va_list arg,  int count)
 {
-	intmax_t num;
+	uintmax_t num;
 	char *l;
-	intmax_t num1;//
 
 	num = va_arg(arg, intmax_t);
-	num1 = num;
-	num = (!ft_strcmp(dose->length_modifier, "l")) ? (unsigned long)num : num;
+	num = (!ft_strcmp(dose->length_modifier, "l")) ? (long)num : num;
 	num = (!ft_strcmp(dose->length_modifier, "ll")) ? (long long)num : num;
 	num = (ft_strlen(dose->length_modifier) == 0) ? (unsigned int)num : num;
-	num = (!ft_strcmp(dose->length_modifier, "h")) ? (short)num : num;
+	num = (!ft_strcmp(dose->length_modifier, "h")) ? (unsigned short)num : num;
 	num = (!ft_strcmp(dose->length_modifier, "z")) ? (size_t)num : num;
-	num = (!ft_strcmp(dose->length_modifier, "hh")) ? (signed char)num : num;
-	if (num < 0)
-		num = num1;
+	num = (!ft_strcmp(dose->length_modifier, "hh")) ? (unsigned char)num : num;
 	l = convert(num, 10, 0);
 	if (num == '\0' && dose->precision == 0 && dose->period == 1)
 	{

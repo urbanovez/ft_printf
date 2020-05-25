@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_check.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttawna <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/10 20:19:54 by ttawna            #+#    #+#             */
+/*   Updated: 2019/11/23 23:36:06 by ttawna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -18,114 +29,85 @@ char *ft_use_precision(char *num, int precision, int period)
 		}
 	}
 	num2[i] = '\0';
-	//if (ft_strcmp(num, "(null)"))
-	//	ft_strdel(&num);
 	return(num2);
 }
 
-int print_s(t_dose	*dose, va_list arg, int count)
+int p(char *num, int l, char s, int order)
 {
-	int l;
+	int count;
+
+	count = 0;
+	if (order == 0)
+	{
+		ft_putstr(num);
+		while (l-- > 0 )
+			count = ft_putchar_and_count(' ', count);
+	}
+	else
+	{
+		while (l-- > 0)
+			count = ft_putchar_and_count(' ', count);
+		ft_putstr(num);
+	}
+	return(count);
+}
+
+int print_s(t_dose	*dose, va_list arg, int c)
+{
 	char *num;
 	int i;
 
-	//num = va_arg(arg, char *);
 	num = (char*)va_arg(arg, void *);
 	if (num == NULL)
 	{
 		num = malloc(sizeof(char)* 7);
 		num = ft_strcpy(num, "(null)");
 		if (dose->precision < 6 && dose->period == 1)
-		{
-			while(dose->width -- > 0)
-			{
-				count++;
-				ft_putchar(' ');
-			}
-			return (count);
-		}
+			return (c + p("", dose->width, ' ', 1));
 	}
 	i = ft_strlen(num);
 	num = ft_use_precision(num, dose->precision, dose->period);
 	if(dose-> width - (int)ft_strlen(num) >0)
-	{
-		l = (dose-> width - (int)ft_strlen(num)); //можно избавиться
-			if (dose->minus == 1)
-			{
-				ft_putstr(num);
-				while (l-- > 0 )
-				{
-					ft_putchar(' ');
-					count++;
-				}
-			}
-			else{
-				while (l-- > 0)
-				{
-					ft_putchar(' ');
-					count++;
-				}
-				ft_putstr(num);
-			}
-	}
+		c = (dose->minus == 1) ? c + p(num, (dose->width - 
+		(int)ft_strlen(num)), ' ', 0) : c + 
+		p(num, (dose-> width - (int)ft_strlen(num)), ' ', 1);
 	else
 		ft_putstr(num);
-	count = count + ft_strlen(num);
+	c = c + ft_strlen(num);
 	if (i - dose->precision > 0 && dose->period == 1)
 		ft_strdel(&num);
-	return (count);
+	return (c);
 }
 
-int int_strlen(int i)
+int ft_putchar_and_count(char num, int count)
 {
-	int k;
-	k = 0;
-	if (i < 0)
-	{
-		i = -i;
-		k++;
-	}
-	while(i > 0)
-	{
-		 i = i/10;
-		 k++;
-	}
-	return (k);
+	ft_putchar(num);
+	return (++count);
 }
 
 int print_c(t_dose	*dose, va_list arg,  int count)
 {
 	int l;
 	char num;
+
     num = va_arg(arg, intmax_t);
-	//num = (char)va_arg(arg, void *); //второй аргумент, это след аргумент на подачу
-	if(dose->width >0)//попробовать вместо count count+l
+	if(dose->width >0)
 	{
 		l = (dose->width - 1);
 			if (dose->minus == 1)
 			{
-				ft_putchar(num);
-				count++;
+				count = ft_putchar_and_count(num, count);
 				while (l-- > 0)
-				{
-					ft_putchar(' ');
-					count++;
-				}
+					count = ft_putchar_and_count(' ', count);
 			}
-			else{
+			else
+			{
 				while (l-- > 0)
-				{
-					ft_putchar(' ');
-					count++;
-				}
-				ft_putchar(num);
-				count++;
+					count = ft_putchar_and_count(' ', count);
+				count = ft_putchar_and_count(num, count);
 			}
 		}
 	else
-	{
-		ft_putchar(num);
-		count++;
-	}
+		count = ft_putchar_and_count(num, count);
 	return (count);
 }

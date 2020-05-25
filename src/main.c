@@ -11,9 +11,9 @@ int main()
     int i1;
 
 //    printf("\n");
-	i = ft_printf("%jo", (uintmax_t)-14785000);
+	i = ft_printf("%#X", 1567);
     ft_printf("\n");
-    i1 = printf("%jo", (uintmax_t)-14785000);
+    i1 = printf("%#X", 1567);
     printf("\n%d %d", i, i1);
 
 
