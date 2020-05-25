@@ -14,6 +14,7 @@ int power(int x, int y)
 	}
 	return rez;
 }
+
 char *ft_joinzero(char **c1, int prec)
 {
 	int i;
@@ -30,9 +31,9 @@ char *ft_joinzero(char **c1, int prec)
 	}
 	c2[prec] = '\0';
 	c2 = ft_strjoin_free2(c1, &c2);
-	ft_strdel(c1);
 	return (c2);
 }
+
 char *ft_inttochar(t_dose	*dose, long double num)
 {
 	intmax_t i1;
@@ -60,6 +61,7 @@ char *ft_inttochar(t_dose	*dose, long double num)
 	c1 = ft_joinzero(&c1, prec);
 	return (c1);
 }
+
 int print_f(t_dose	*dose, va_list arg,  int count)
 {
 	char *i1;
@@ -69,7 +71,6 @@ int print_f(t_dose	*dose, va_list arg,  int count)
 	i = 0;
 	num = va_arg(arg,double);
 	num = (!ft_strcmp(dose->length_modifier, "l")) ? (long double)num : num;
-	//num = (!ft_strcmp(dose->length_modifier, "L")) ? (long double)num : num;
 	num = (ft_strlen(dose->length_modifier) == 0) ? (double)num : num;
 
 	if (dose->precision == 0 && dose->period == 0)

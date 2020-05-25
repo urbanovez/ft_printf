@@ -28,6 +28,7 @@ char	*ft_strjoin_free2(char **s1, char **s2)
 	}
 	str[i + j] = '\0';
 	ft_strdel(&p);
+	*p1 = 'a';
 	//ft_strdel(&p1);
 	return (str);
 }

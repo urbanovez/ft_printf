@@ -9,11 +9,13 @@ int main()
 {
     int i;
     int i1;
+    char *f;
 
 //    printf("\n");
-	i = ft_printf("%#X", 1567);
+	//f = malloc(sizeof(char)*50);
+	i = ft_printf("%s","LYDI");
     ft_printf("\n");
-    i1 = printf("%#X", 1567);
+    i1 = printf("%%-*.3s LYDI == |%-*.3s|", 5, "LYDI");
     printf("\n%d %d", i, i1);
 
 

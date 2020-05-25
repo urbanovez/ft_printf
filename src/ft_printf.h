@@ -48,6 +48,7 @@ int print_di(t_dose	*dose, va_list arg,  int count);
 int print_u(t_dose	*dose, va_list arg,  int count);
 int print_o(t_dose	*dose, va_list arg,  int count);
 int print_p(t_dose	*dose, va_list arg,  int count);
+int print_oo(t_dose	*dose, va_list arg,  int count);
 int power(int x, int y);
 char *convert(uintmax_t num, int base, int a);
 char *ft_join_width(t_dose	*dose,char **i1);

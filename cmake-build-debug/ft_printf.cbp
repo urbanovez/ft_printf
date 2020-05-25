@@ -144,6 +144,9 @@
 		<Unit filename="/home/mr_zubr/CLionProjects/ft_printf/src/print_o.c">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="/home/mr_zubr/CLionProjects/ft_printf/src/print_oo.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/home/mr_zubr/CLionProjects/ft_printf/src/print_p.c">
 			<Option target="ft_printf"/>
 		</Unit>
