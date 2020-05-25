@@ -1,34 +1,6 @@
 
 #include "ft_printf.h"
 
-char *ft_intjoin(int i,int num)//i точность, нум число
-{
-	char *f;
-	int j;
-	int m;
-
-	j = 0;
-	if(i < 0)
-		i = 0;
-	f = malloc(sizeof(char)* (i + int_strlen(num) +1));
-	if (num < 0)
-	{
-		num = -num;
-		f[j++] = '-';
-	}
-	while(i-- > 0)
-		f[j++] = '0';
-	i = int_strlen(num);
-	m = i;
-	while(num > 0)
-	{
-		f[j + i-- -1]= (num % 10 +48);
-		num = num/10;
-	}
-	f[j + m] = '\0';
-	return (f);
-}
-
 char	*ft_join_minus(char **i1, char sign)//специально для ширины добавить минус или плюс
 {
 	char *i;
@@ -61,15 +33,24 @@ char	*ft_delete_minus(char **src)//убираем минус из начала �
 	return (dst);
 }
 
-char *width_join(int len, char s, char **i1, int i)
+char *ft_fill(int len, char s)
 {
-	char *wid;
 	int j;
+	char *wid;
+
 	wid = malloc(sizeof(char)*len +1);
 	j = 0;
 	while(len-- >0)
 		wid[j++] = s;
 	wid[j] = '\0';
+	return (wid);
+}
+
+char *width_join(int len, char s, char **i1, int i)
+{
+	char *wid;
+
+	wid = ft_fill(len, s);
 	if (i == 1)
 		*i1 = ft_strjoin_free2(i1, &wid);
 	else
@@ -113,9 +94,9 @@ char	*ft_join_sign(t_dose	*dose,char **i1)
 	char *number_s;
 	char *sign;
 
-
 	i = 1;
-	if (((dose->plus == 0 && dose->space == 0) || *i1[0] == '-') && (dose->number_sign == 0 || dose->format_conversion == 'f'))//стремная хуйня
+	if (((dose->plus == 0 && dose->space == 0) || *i1[0] == '-') &&
+		(dose->number_sign == 0 || dose->format_conversion == 'f'))//стремная хуйня
 		return(*i1);
 	sign = *i1;
 	number_s = malloc(sizeof(char)* (ft_strlen(*i1) + 2)); //23 +2
