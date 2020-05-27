@@ -4,7 +4,7 @@ static int		num_len(intmax_t num)
 {
 	int len;
 
-	len = 0;
+	len = 1;
 	while ((num = num / 10))
 		len++;
 	return (len);

@@ -95,16 +95,23 @@ char	*ft_join_sign(t_dose	*dose,char **i1)
 	char *sign;
 
 	i = 1;
-	if (((dose->plus == 0 && dose->space == 0) || *i1[0] == '-') &&
-		(dose->number_sign == 0 || dose->format_conversion == 'f'))//стремная хуйня
-		return(*i1);
 	sign = *i1;
 	number_s = malloc(sizeof(char)* (ft_strlen(*i1) + 2)); //23 +2
+	if (((dose->plus == 0 && dose->space == 0) || *i1[0] == '-') &&
+		(dose->number_sign == 0 || dose->format_conversion == 'f'))//стремная хуйня
+	{
+		number_s = ft_strcpy(number_s, *i1);
+		ft_strdel(&sign);
+		return(number_s);
+	}
+	number_s[0] = (dose->plus == 1) ? '+' : ' ';
+	/*
 	if (dose->plus == 1)
 		number_s[0] = '+';
-	else if(dose->space == 1)
+	*/
+	if(dose->space == 1)
 		number_s[0] = ' ';
-	else if(dose->number_sign == 1)
+	if(dose->number_sign == 1)
 		number_s[0] = '0';
 	while(**i1)
 	{
@@ -112,19 +119,14 @@ char	*ft_join_sign(t_dose	*dose,char **i1)
 		(*i1)++;
 	}
 	number_s[i] = '\0';
-	if (dose->format_conversion == 'd' || dose->format_conversion == 'i')
-		ft_strdel(&sign);
+	ft_strdel(&sign);
 	return (number_s);
 }
 
 char *ft_zero(t_dose *dose, intmax_t num, char **i1)
 {
 	if (num == '\0' && dose->precision == 0 && dose->period == 1)
-	{
-		ft_strdel(i1);
-		i1 = malloc(sizeof(char));
-		*i1 = "\0";
-	}
+		*i1[0] = '\0';
 	return (*i1);
 }
 

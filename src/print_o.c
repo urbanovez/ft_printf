@@ -6,8 +6,9 @@ char *convert(uintmax_t num, int base, int a)// a= 0 маленькие, a = 1 �
 	char *Representation;
 	char *buffer;
 	char *ptr;
+	char *l;
 
-	Representation = malloc(sizeof(char)* 16);
+	Representation = malloc(sizeof(char)* 17);
 	if (a == 1)
 		Representation = ft_strcpy(Representation , "0123456789ABCDEF");
 	else
@@ -20,8 +21,11 @@ char *convert(uintmax_t num, int base, int a)// a= 0 маленькие, a = 1 �
 		*--ptr = Representation[num%base];
 		num /= base;
 	}
+	l =malloc(sizeof(char)*ft_strlen(ptr)+1);
+	l = ft_strcpy(l, ptr);
 	ft_strdel(&Representation);
-	return(ptr);
+	ft_strdel(&buffer);
+	return(l);
 }
 
 char *ft_precision_join(int i,char **num)//i точность, нум число
@@ -55,7 +59,7 @@ int print_o(t_dose	*dose, va_list arg,  int count)
 	l = convert(num, 8, 0);
 	if (num == '\0' && dose->precision == 0 && dose->period == 1)
 	{
-		l = malloc(sizeof(char));
+		//l = malloc(sizeof(char));
 		l[0] = '\0';
 	}
 	l = ft_join_sign(dose, &l);//плюс или пробел в начале

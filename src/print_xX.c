@@ -61,10 +61,7 @@ int print_xX(t_dose	*dose, va_list arg,  int count)
 		dose->number_sign = 0;
 	l = (dose->format_conversion == 'x') ? convert(num, 16, 0) : convert(num, 16, 1);
 	if (num == '\0' && dose->precision == 0 && dose->period == 1)
-	{
-		l = malloc(sizeof(char));
 		l[0] = '\0';
-	}
 	count = count + ft_xxx(dose, l);
 	return (count);
 }

@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/mr_zubr/CLionProjects/ft_printf/libft/ft_strjoin_free2.c
-libft.h
-/home/mr_zubr/CLionProjects/ft_printf/libft/libft.h
-
 /home/mr_zubr/CLionProjects/ft_printf/libft/libft.h
 string.h
 -

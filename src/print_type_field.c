@@ -60,10 +60,10 @@ int print_s(t_dose	*dose, va_list arg, int c)
 	num = (char*)va_arg(arg, void *);
 	if (num == NULL)
 	{
-		num = malloc(sizeof(char)* 7);
-		num = ft_strcpy(num, "(null)");
 		if (dose->precision < 6 && dose->period == 1)
 			return (c + p("", dose->width, ' ', 1));
+		num = malloc(sizeof(char)* 7);
+		num = ft_strcpy(num, "(null)");
 	}
 	i = ft_strlen(num);
 	num = ft_use_precision(num, dose->precision, dose->period);
@@ -74,7 +74,7 @@ int print_s(t_dose	*dose, va_list arg, int c)
 	else
 		ft_putstr(num);
 	c = c + ft_strlen(num);
-	if (i - dose->precision > 0 && dose->period == 1)
+	if ((i - dose->precision > 0 && dose->period == 1) || !ft_strcmp(num, "(null)"))
 		ft_strdel(&num);
 	return (c);
 }
