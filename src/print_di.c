@@ -105,12 +105,6 @@ char	*ft_join_sign(t_dose	*dose,char **i1)
 		return(number_s);
 	}
 	number_s[0] = (dose->plus == 1) ? '+' : ' ';
-	/*
-	if (dose->plus == 1)
-		number_s[0] = '+';
-	*/
-	if(dose->space == 1)
-		number_s[0] = ' ';
 	if(dose->number_sign == 1)
 		number_s[0] = '0';
 	while(**i1)
