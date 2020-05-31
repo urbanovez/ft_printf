@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_intmax.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttawna <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/10 20:19:54 by ttawna            #+#    #+#             */
+/*   Updated: 2019/11/23 23:36:06 by ttawna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static int		num_len(intmax_t num)
+static	int	num_len(intmax_t num)
 {
 	int len;
 
@@ -10,7 +22,7 @@ static int		num_len(intmax_t num)
 	return (len);
 }
 
-static void		set_intmax_toa(char **p_str, intmax_t num)
+static void	set_intmax_toa(char **p_str, intmax_t num)
 {
 	if (num < 10)
 	{
@@ -22,14 +34,15 @@ static void		set_intmax_toa(char **p_str, intmax_t num)
 	set_intmax_toa(p_str, num % 10);
 }
 
-char	*ft_intmax_toa(intmax_t num)
+char		*ft_intmax_toa(intmax_t num)
 {
-	int len;
+	int		len;
 	char	*str;
 	char	*str_copy;
+
 	len = num_len(num);
 	len += (num < 0) ? 1 : 0;
-	if(!(str = ft_memalloc(len + 1)))
+	if (!(str = ft_memalloc(len + 1)))
 		return (0);
 	str_copy = str;
 	if (num == INT64_MIN)

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_check.c                                      :+:      :+:    :+:   */
+/*   print_xX.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttawna <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,23 +12,26 @@
 
 #include "ft_printf.h"
 
-char *ft_0x(t_dose	*dose, char **l)
+char	*ft_0x(t_dose *dose, char **l)
 {
-	char *pr;
-	pr = malloc(sizeof(char)*3);
+	char	*pr;
+
+	pr = malloc(sizeof(char) * 3);
 	if (dose->format_conversion == 'x')
 		pr = ft_strcpy(pr, "0x");
 	else if (dose->format_conversion == 'X')
 		pr = ft_strcpy(pr, "0X");
 	pr = ft_strjoin_free2(&pr, l);
-	return(pr);
+	return (pr);
 }
 
-int ft_xxx(t_dose *dose, char *l)
+int		ft_xxx(t_dose *dose, char *l)
 {
-	int i;
-	dose->precision = (dose->precision == 0 && dose->period == 0) ? 1 : dose->precision;
-	l = ft_precision_join(dose->precision- ft_strlen(l), &l);
+	int	i;
+
+	dose->precision = (dose->precision == 0 &&
+			dose->period == 0) ? 1 : dose->precision;
+	l = ft_precision_join(dose->precision - ft_strlen(l), &l);
 	if (dose->zero == 1 && dose->number_sign == 1)
 	{
 		dose->width -= 2;
@@ -43,13 +46,13 @@ int ft_xxx(t_dose *dose, char *l)
 	ft_putstr(l);
 	i = ft_strlen(l);
 	ft_strdel(&l);
-	return(i);
+	return (i);
 }
 
-int print_xX(t_dose	*dose, va_list arg,  int count)
+int		print_xx(t_dose *dose, va_list arg, int count)
 {
-	intmax_t num;
-	char *l;
+	intmax_t	num;
+	char		*l;
 
 	num = va_arg(arg, uintmax_t);
 	num = (!ft_strcmp(dose->length_modifier, "l")) ? (long)num : num;
@@ -59,7 +62,8 @@ int print_xX(t_dose	*dose, va_list arg,  int count)
 	num = (!ft_strcmp(dose->length_modifier, "hh")) ? (unsigned char)num : num;
 	if (num == 0)
 		dose->number_sign = 0;
-	l = (dose->format_conversion == 'x') ? convert(num, 16, 0) : convert(num, 16, 1);
+	l = (dose->format_conversion == 'x') ?
+			convert(num, 16, 0) : convert(num, 16, 1);
 	if (num == '\0' && dose->precision == 0 && dose->period == 1)
 		l[0] = '\0';
 	count = count + ft_xxx(dose, l);

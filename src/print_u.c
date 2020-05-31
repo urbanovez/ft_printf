@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_u.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttawna <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/10 20:19:54 by ttawna            #+#    #+#             */
+/*   Updated: 2019/11/23 23:36:06 by ttawna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_u(t_dose	*dose, va_list arg,  int count)
+int	print_u(t_dose *dose, va_list arg, int count)
 {
-	uintmax_t num;
-	char *l;
+	uintmax_t	num;
+	char		*l;
 
 	num = va_arg(arg, intmax_t);
 	num = (!ft_strcmp(dose->length_modifier, "l")) ? (long)num : num;
@@ -16,10 +27,10 @@ int print_u(t_dose	*dose, va_list arg,  int count)
 	l = convert(num, 10, 0);
 	if (num == '\0' && dose->precision == 0 && dose->period == 1)
 		l[0] = '\0';
-	l = ft_join_sign(dose, &l);//плюс или пробел в начале
+	l = ft_join_sign(dose, &l);
 	if (dose->precision == 0 && dose->period == 0)
 		dose->precision = 1;
-	l = ft_precision_join(dose->precision- ft_strlen(l), &l);
+	l = ft_precision_join(dose->precision - ft_strlen(l), &l);
 	l = ft_join_width(dose, &l);
 	ft_putstr(l);
 	count = count + ft_strlen(l);
